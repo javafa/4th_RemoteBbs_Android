@@ -34,6 +34,16 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Holder
         return datas.length;
     }
 
+    public void addDataAndRefresh(Data[] data) {
+        // 기존 데이터에 신규 데이터를 합친다
+        Data temp[] = new Data[datas.length + data.length];
+        System.arraycopy(datas,0, temp, 0, datas.length);
+        System.arraycopy(data, 0, temp, datas.length, data.length);
+        datas = temp;
+        // 리스트를 갱신한다.
+        notifyDataSetChanged();
+    }
+
     public class Holder extends RecyclerView.ViewHolder{
         TextView textTitle;
         TextView textDate;

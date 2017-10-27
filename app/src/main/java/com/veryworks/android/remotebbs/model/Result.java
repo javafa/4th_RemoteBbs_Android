@@ -30,8 +30,12 @@ public class Result {
         this.code = code;
     }
 
+    public boolean isSuccess(){
+        return "200".equals(code);
+    }
+
     @Override
     public String toString() {
-        return "ClassPojo [data = "+data+", code = "+code+"]";
+        return "ClassPojo [data = "+data+", code = "+code+", msg = "+msg+"]";
     }
 }
